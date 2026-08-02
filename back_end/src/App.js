@@ -1,4 +1,5 @@
 import cookieParser from "cookie-parser";
+import userRouter from "./routes/user.routs.js";
 
 // CORS allows frontend and backend from different origins to communicate
 import cors from "cors";
@@ -33,7 +34,7 @@ app.use(cookieParser());
 // req.cookies.token
 
 //routs
-import  userRouter from "./routes/user.routs.js";
+// import  userRouter from "./routes/user.routs.js";
 
 app.use("/api/v1/users", userRouter)
 
