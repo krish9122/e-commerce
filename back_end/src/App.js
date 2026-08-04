@@ -1,5 +1,8 @@
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.routs.js";
+import productRouter from "./routes/product.rout.js";
+import orderRouter from "./routes/order.rout.js";
+import analyticsRouter from "./routes/analytics.rout.js";
 
 // CORS allows frontend and backend from different origins to communicate
 import cors from "cors";
@@ -13,7 +16,7 @@ app.use(
     // Allows requests only from this frontend URL
     // Example:
     // http://localhost:3000
-    origin: process.env.CORS_ORIGIN,
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
 
     // Allows cookies, authorization headers, sessions etc.
     // to be sent between frontend and backend
@@ -34,8 +37,9 @@ app.use(cookieParser());
 // req.cookies.token
 
 //routs
-// import  userRouter from "./routes/user.routs.js";
-
-app.use("/api/v1/users", userRouter)
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/products", productRouter);
+app.use("/api/v1/orders", orderRouter);
+app.use("/api/v1/analytics", analyticsRouter);
 
 export default app;
